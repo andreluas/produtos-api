@@ -2,6 +2,8 @@ package com.produtosapi.produtosapi.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.produtosapi.produtosapi.models.Produto;
 import com.produtosapi.produtosapi.repository.ProdutoRepository;
 
@@ -42,19 +44,19 @@ public class ProdutoController {
 
     @PostMapping("/produto")
     @ApiOperation(value="Cadastra produto")
-    public Produto addProduto(@RequestBody Produto produto) {
+    public Produto addProduto(@RequestBody @Valid Produto produto) {
         return produtoRepository.save(produto);
     }
 
     @DeleteMapping("/produto")
     @ApiOperation(value="Deleta produto")
-    public void deleteProduto(@RequestBody Produto produto) {
+    public void deleteProduto(@RequestBody @Valid Produto produto) {
         produtoRepository.delete(produto);
     }
 
     @PutMapping("/produto")
     @ApiOperation(value="Atualiza produto")
-    public Produto updateProduto(@RequestBody Produto produto) {
+    public Produto updateProduto(@RequestBody @Valid Produto produto) {
         return produtoRepository.save(produto);
     }
 }
